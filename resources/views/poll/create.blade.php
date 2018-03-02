@@ -9,9 +9,6 @@
             {!! csrf_field() !!}
             <label class="sr-only">Question</label>
             <input class="form-control" name="name" placeholder="Question" required autofocus><br>
-            <h3>Enter options</h3>
-            <label class="sr-only">Code</label>
-            <input class="form-control" name="code" placeholder="Code" required><br>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit me vole</button>
         </form>
 

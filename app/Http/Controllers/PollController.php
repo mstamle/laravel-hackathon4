@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Poll;
+
 
 class PollController extends Controller
 {
@@ -34,7 +38,12 @@ class PollController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newRow = new Poll();
+        $newRow->name = $request->get('name');
+        $newRow->code = uniqid();
+        $newRow->user_id = Auth::id();
+        $newRow->save();
+        return redirect(action('PollController@create'));
     }
 
     /**
