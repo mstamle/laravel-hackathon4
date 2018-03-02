@@ -20,8 +20,8 @@ Auth::routes();
 Route::get('/index', 'HomeController@index')->name('home');
 
 Route::get('/poll/create', 'PollController@create');
-Route::get('/poll/{code}', 'PollController@index');
 
+Route::get('/poll/{code}', 'PollController@index');
 
 Route::post('/poll/create', 'PollController@store');
 
