@@ -33,3 +33,5 @@ Route::post('/option/create', 'OptionController@store');
 
 Route::get('/poll/{code}', 'PollController@show');
 
+Route::get('/poll/{code}','PollController@show')->name('show poll');
+

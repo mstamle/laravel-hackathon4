@@ -44,7 +44,7 @@ class OptionController extends Controller
     {
         $newRow = new Option();
         $newRow->name = $request->get('name');
-        $newRow->poll_id = $request->get('poll_id');
+        $newRow->poll_id = $request->get('poll_code');
         $newRow->save();
         return redirect(action('PollController@create'));
     }

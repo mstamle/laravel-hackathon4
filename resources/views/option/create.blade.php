@@ -9,7 +9,7 @@
 
         <form method="post" action= "{{ action('OptionController@store') }} ">
             {!! csrf_field() !!}
-            <input type="hidden" name="poll_id" value="{{ $shownPoll->id }}">
+            <input type="hidden" name="poll_code" value="{{ $shownPoll->code }}">
 
             <label class="sr-only">New option</label>
             <input class="form-control" name="name" placeholder="Option" required autofocus><br>
@@ -17,7 +17,7 @@
             <label>Poll</label>
             <select class="form-control" name="poll">
                 @foreach($polls as $poll)
-                    <option value=" {{$poll->id}} "> {{$poll->name}} </option>
+                    <option value=" {{$poll->code}} "> {{$poll->name}} </option>
                 @endforeach
             </select>
             </div>

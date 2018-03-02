@@ -56,7 +56,8 @@ class PollController extends Controller
     public function show($code)
     {
         $shownPoll = \App\Poll::where('code','=',$code)->first();
-        return view('poll/show', ['shownPoll' => $shownPoll]);
+        $shownOptions = \App\Option::where('poll_code','=',$poll_code)->get();
+        return view('poll/show', ['shownPoll' => $shownPoll],['showOptions' => $shownOptions]);
         return $shownPoll;
     }
 

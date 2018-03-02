@@ -27,6 +27,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" href="{{action('HomeController@index')}}">All Polls</a></li>
+                    <li><a class="nav-link" href="{{action('PollController@create')}}">Create Poll</a></li>
+                    <li><a class="nav-link" href="{{action('ManageController@index')}}">Poll Management</a></li>
 
                     </ul>
 
