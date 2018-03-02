@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Option;
+use App\Poll;
+
 
 class OptionController extends Controller
 {
@@ -13,7 +16,7 @@ class OptionController extends Controller
      */
     public function index()
     {
-        //
+        $options = \App\Option::all();
     }
 
     /**
@@ -21,9 +24,14 @@ class OptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($code)
     {
-        return view('option.create');
+
+        $polls = \App\Poll::all();
+        // return Auth::user()->id;
+        $shownPoll = \App\Poll::where('code','=',$code)->first();
+
+        return view('option/create', ['polls' => $polls, 'shownPoll' => $shownPoll]);
     }
 
     /**
@@ -34,11 +42,9 @@ class OptionController extends Controller
      */
     public function store(Request $request)
     {
-        $newRow = new Poll();
+        $newRow = new Option();
         $newRow->name = $request->get('name');
         $newRow->poll_id = $request->get('poll_id');
-
-        $newRow->user_id = Auth::id();
         $newRow->save();
         return redirect(action('PollController@create'));
     }

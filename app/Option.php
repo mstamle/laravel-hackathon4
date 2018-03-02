@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Option extends Model
 {
     protected $table = "options";
+    public function polls() {
+        return $this->belongsTo('App\Poll');
+    }
 }

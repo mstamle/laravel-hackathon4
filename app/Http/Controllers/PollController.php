@@ -27,7 +27,8 @@ class PollController extends Controller
      */
     public function create()
     {
-        return view('poll.create');
+        $polls = \App\Poll::all();
+        return view('poll.create', ['polls' => $polls]);
     }
 
     /**
@@ -43,7 +44,7 @@ class PollController extends Controller
         $newRow->code = uniqid();
         $newRow->user_id = Auth::id();
         $newRow->save();
-        return redirect(action('PollController@create'));
+        return redirect(action('PollController@show', $newRow->code));
     }
 
     /**
@@ -52,9 +53,11 @@ class PollController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code)
     {
-        //
+        $shownPoll = \App\Poll::where('code','=',$code)->first();
+        return view('poll/show', ['shownPoll' => $shownPoll]);
+        return $shownPoll;
     }
 
     /**

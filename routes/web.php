@@ -21,8 +21,15 @@ Route::get('/index', 'HomeController@index')->name('home');
 
 Route::get('/poll/create', 'PollController@create');
 
-Route::get('/poll/{code}', 'PollController@index');
+// Route::get('/poll/{code}', 'PollController@index');
 
 Route::post('/poll/create', 'PollController@store');
 
 Route::get('/manage/polls', 'ManageController@index');
+
+Route::get('/option/create/{code?}', 'OptionController@create');
+
+Route::post('/option/create', 'OptionController@store');
+
+Route::get('/poll/{code}', 'PollController@show');
+
