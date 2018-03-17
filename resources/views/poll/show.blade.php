@@ -4,9 +4,11 @@
     <div class="container">
     <h1>{{ $shownPoll->name }}</h1>
 
-    @foreach($shownOptions as $shownOption)
-    {{$showOption -> name}} <br/>
-    @endforeach
+   <ol>
+        @foreach($shownOptions as $shownOption)
+        <li>{{$shownOption -> name}}</li>
+        @endforeach
+   </ol>
 
 
     <p>Here we will show the list of options that belong to this question</p>

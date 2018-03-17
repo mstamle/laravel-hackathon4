@@ -41,6 +41,7 @@
             </div>
         </div>
         @endforeach
+        <br/>
         <a href="{{ action('PollController@create')}}" class="btn btn-primary">Create your new Poll here</a>
     </div>
 </section>

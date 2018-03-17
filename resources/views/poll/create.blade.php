@@ -13,6 +13,6 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit me vole</button>
         </form>
 
-    </div>
-    @endsection
+</div>
+@endsection
 
